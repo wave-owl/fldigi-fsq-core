@@ -1,0 +1,15 @@
+# stem source mode speed index rx-carrier snrs -- fldigi 4.2.13 bench RX of 1 s + source + 3 s, squelch off; noise seed = 1000 * index + snr step
+fsq_15_cq fsq_15_cq FSQ 1.5 0 1500 clean,m03,m06,m09,m12
+fsq_2_cq fsq_2_cq FSQ 2 1 1500 clean,m03,m06,m09,m12
+fsq_3_cq fsq_3_cq FSQ 3 2 1500 clean,m03,m06,m09,m12
+fsq_45_cq fsq_45_cq FSQ 4.5 3 1500 clean,m03,m06,m09,m12
+fsq_6_cq fsq_6_cq FSQ 6 4 1500 clean,m03,m06,m09,m12
+fsq_3_directed fsq_3_directed FSQ 3 5 1500 clean,m03,m06,m09,m12
+fsq_3_allcall fsq_3_allcall FSQ 3 6 1500 clean,m03,m06,m09,m12
+fsq_3_startup fsq_3_startup FSQ 3 7 1500 clean,m03,m06,m09,m12
+ifkp_0_cq ifkp_0_cq IFKP 0 8 1500 clean,m03,m06,m09,m12
+ifkp_1_cq ifkp_1_cq IFKP 1 9 1500 clean,m03,m06,m09,m12
+ifkp_2_cq ifkp_2_cq IFKP 2 10 1500 clean,m03,m06,m09,m12
+ifkp_1_tx1510 ifkp_1_tx1510 IFKP 1 11 1500 clean,m03,m06,m09,m12
+fsq_3_cq_rx1510 fsq_3_cq FSQ 3 12 1510 clean,m06
+fsq_3_cq_rx1490 fsq_3_cq FSQ 3 13 1490 clean,m06

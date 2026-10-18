@@ -1,0 +1,21 @@
+# stem mode speed text index samplerate samples directed carrier startup fnv1a64(int16 LE) -- fldigi 4.2.13 bench TX, txlevel -12 dB
+fsq_15_cq FSQ 1.5 cq 0 12000 303168 0 1500 0 f35ae5651b798497
+fsq_2_cq FSQ 2 cq 1 12000 227392 0 1500 0 d65a06e2f2744066
+fsq_3_cq FSQ 3 cq 2 12000 151616 0 1500 0 98c8962f83327012
+fsq_45_cq FSQ 4.5 cq 3 12000 113728 0 1500 0 b4bc46302e734ad2
+fsq_6_cq FSQ 6 cq 4 12000 75840 0 1500 0 efe5aa925bb67c3e
+fsq_15_pangram FSQ 1.5 pangram 5 12000 1474624 0 1500 0 1e8a6a224288f5e1
+fsq_2_pangram FSQ 2 pangram 6 12000 1105984 0 1500 0 44e974030b5ce34b
+fsq_3_pangram FSQ 3 pangram 7 12000 737344 0 1500 0 19d84f32426c6d2d
+fsq_45_pangram FSQ 4.5 pangram 8 12000 553024 0 1500 0 0bb189dc1f39aef0
+fsq_6_pangram FSQ 6 pangram 9 12000 368704 0 1500 0 0eb12e25f11a73c9
+fsq_3_directed FSQ 3 directed 10 12000 196672 1 1500 0 43d8f0754f3e3ef5
+fsq_3_allcall FSQ 3 allcall 11 12000 196672 1 1500 0 5b1c1249b2074a00
+fsq_3_startup FSQ 3 cq 12 12000 151616 0 1500 1 e71bd6b341232ef3
+ifkp_0_cq IFKP 0 cq 13 16000 221184 0 1500 0 2ab384120d6165c5
+ifkp_1_cq IFKP 1 cq 14 16000 110592 0 1500 0 aa8de657d847f4a6
+ifkp_2_cq IFKP 2 cq 15 16000 55296 0 1500 0 1d49c8755f068f55
+ifkp_0_pangram IFKP 0 pangram 16 16000 1392640 0 1500 0 458ba8c3c706af82
+ifkp_1_pangram IFKP 1 pangram 17 16000 696320 0 1500 0 cf70b5385921ae05
+ifkp_2_pangram IFKP 2 pangram 18 16000 348160 0 1500 0 04af4af9e240b498
+ifkp_1_tx1510 IFKP 1 cq 19 16000 110592 0 1510 0 bd6bab08660f2076

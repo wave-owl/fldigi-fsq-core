@@ -1,0 +1,69 @@
+diff --git a/src/fsq/fsq.cxx b/src/fsq/fsq.cxx
+index 5ba0e8dd..15606bbd 100644
+--- a/src/fsq/fsq.cxx
++++ b/src/fsq/fsq.cxx
+@@ -127,6 +127,23 @@ void fsq::init_nibbles()
+ 	}
+ }
+ 
++#if BENCHMARK_MODE
++// ---- fldigi-bench FSQ extension (local patch, not upstream) ----
++// With FLDIGI_BENCH_FSQ set (wave-owl fldigi-fsq-core goldens):
++//  * every byte the FSQ receiver hands to write_rx_mon_char() goes to the bench text
++//    output (put_rx_char) instead of the FSQ monitor widgets;
++//  * parse_rx_text() only clears rx_text: no reply(), relay, file trigger or GUI access,
++//    so the bench never "transmits" and never touches the disk;
++//  * get_fsq_tx_char() takes FLDIGI_BENCH_TX_TEXT once, followed by fldigi's own "^r"
++//    end marker, as fsq_transmit() queues an operator's text.
++// The modem DSP is not touched; without the variable nothing changes.
++#include <cstdlib>
++static bool bench_fsq() { static int on = -1; if (on < 0) on = getenv("FLDIGI_BENCH_FSQ") != 0; return on; }
++#else
++static bool bench_fsq() { return false; }
++#endif
++// ---- end fldigi-bench FSQ extension ----
++
+ // note:
+ // display_fsq_rx_text and
+ // display_fsq_mon_text
+@@ -136,6 +153,7 @@ void fsq::init_nibbles()
+ 
+ void write_rx_mon_char(int ch)
+ {
++	if (bench_fsq()) { put_rx_char(ch & 0xFF, FTextBase::RECV); return; }
+ 	int ach = ch & 0xFF;
+ 	if (!progdefaults.fsq_directed) {
+ 		display_fsq_rx_text(fsq_ascii[ach], FTextBase::FSQ_UND) ;
+@@ -447,6 +465,7 @@ int fsq::valid_callsign(std::string s)
+ 
+ void fsq::parse_rx_text()
+ {
++	if (bench_fsq()) { rx_text.clear(); return; }
+ 	char ztbuf[20];
+ 	struct timeval tv;
+ 	gettimeofday(&tv, NULL);
+@@ -1582,6 +1601,11 @@ int get_fsq_tx_char(void)
+ {
+ 	guard_lock tx_proc_lock(&fsq_tx_mutex);
+ 
++	if (bench_fsq()) {
++		static bool loaded = false;
++		const char *t = getenv("FLDIGI_BENCH_TX_TEXT");
++		if (!loaded && t) { loaded = true; tx_text_queue.assign(t).append("^r"); }
++	}
+ 	if (tx_text_queue.empty()) return (GET_TX_CHAR_NODATA);
+ 
+ 	int c = tx_text_queue[0];
+diff --git a/src/misc/benchmark.cxx b/src/misc/benchmark.cxx
+--- a/src/misc/benchmark.cxx
++++ b/src/misc/benchmark.cxx
+@@ -150,6 +150,9 @@ void do_benchmark(void)
+ void do_benchmark(void)
+ {
+ 	ENSURE_THREAD(TRX_TID);
++	// fldigi-bench: FLDIGI_BENCH_RETUNE re-applies the carrier after the modem's init(), as a
++	// click on the waterfall does in the GUI (FSQ computes its tone base there).
++	if (getenv("FLDIGI_BENCH_RETUNE")) active_modem->set_freq(progStatus.carrier);
+ 	if (do_benchmark_tx()) return;
+ 	fprintf(stderr, "bench-rx: mode=%s sr=%d\n", mode_info[active_modem->get_mode()].sname, active_modem->get_samplerate());
+ 	std::stringstream info;

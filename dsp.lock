@@ -1,0 +1,7 @@
+# fldigi-dsp-core pin, checked by tools/check_dsp.sh before every build (wave-owl R-920.3).
+# Update together with the dsp/ submodule: version, commit and the content checksum of the
+# linked files (the sha256 of the sorted "<sha256>  <path>" listing of `files`).
+version=0.6.0
+commit=bdf704d39d93ff16b37f98661dbfc0f11a7a1b26
+checksum=8fe0a5fe620d6ee30d33e15a5e11b3e42f6a123c939c749163ef8d84efc87269
+files=include/fldigi_dsp.h src/fdsp_gfft.c src/fdsp_filters.c
