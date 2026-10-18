@@ -105,7 +105,7 @@ fldigi 4.2.13 (mirror `wave-owl/fldigi`, tag v4.2.13, commit e7c3ab37):
 | `ifkp.cxx:627-674` | `rx_process` | `fsq_rx.c` |
 | `ifkp.cxx:687-733` | `send_tone`, `send_symbol`, `send_idle`, `send_char` | `fsq_tx.c` |
 | `ifkp.cxx:1056-1104` | `tx_process` | `fsq_tx.c` |
-| `misc.h:66-69`, `gfft.h`, `filters.cxx:46-310` | Blackman, FFT, FIR, `Cmovavg` | fldigi-dsp-core 0.6.0 |
+| `misc.h:66-69`, `gfft.h`, `filters.cxx:46-310` | Blackman, FFT, FIR, `Cmovavg` | fldigi-dsp-core 0.6.1 |
 
 Not ported (host protocol, GUI or images): `parse_rx_text` and the trigger handlers
 (`fsq.cxx:448-1002`), the TX queue, delayed send, heard-list aging and sounder
@@ -146,7 +146,7 @@ All declarations are in `include/fldigi_fsq.h`.
 
 | Function | Description |
 |---|---|
-| `ffsq_version()`, `ffsq_abi()` | `"fldigi-fsq-core 0.1.0 contract=fsq-c1 abi=1 tx=1 dsp=0.6.0"`, `1`. |
+| `ffsq_version()`, `ffsq_abi()` | `"fldigi-fsq-core 0.1.0 contract=fsq-c1 abi=1 tx=1 dsp=0.6.1"`, `1`. |
 | `ffsq_sample_rate(mode)`, `ffsq_bandwidth(mode)`, `ffsq_symlen(mode, speed)` | 12000/16000 Hz, 290/386 Hz, samples per TX symbol. |
 | `ffsq_crc8_hex(s, out)` | fldigi's CRC-8 of `s` as two lower-case hex digits. |
 | `ffsq_rx_create(cfg)` | Receiver: `mode` (`FFSQ_MODE_FSQ`/`FFSQ_MODE_IFKP`), `speed`, `carrier_hz`, `movavg`, `peak_hits` (0 = fldigi's defaults), `squelch_on`, `squelch` (metric units). NULL for a bad mode or speed. |

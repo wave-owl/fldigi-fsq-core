@@ -29,7 +29,7 @@ static void test_params(void)
     const char *v = ffsq_version();
     CHECK(strstr(v, "contract=fsq-c1") != NULL, "version %s", v);
     CHECK(strstr(v, "abi=1") != NULL && strstr(v, "tx=1") != NULL, "version %s", v);
-    CHECK(strstr(v, "dsp=0.6.0") != NULL, "version %s", v);
+    CHECK(strstr(v, "dsp=0.6.1") != NULL, "version %s", v);
     CHECK(ffsq_abi() == FFSQ_ABI && FFSQ_ABI == 1, "abi");
     CHECK(ffsq_sample_rate(FFSQ_MODE_FSQ) == 12000, "fsq rate");
     CHECK(ffsq_sample_rate(FFSQ_MODE_IFKP) == 16000, "ifkp rate");

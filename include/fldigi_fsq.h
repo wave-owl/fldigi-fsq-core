@@ -32,7 +32,7 @@ extern "C" {
 #define FFSQ_VERSION_STRING "0.1.0"
 #define FFSQ_ABI 1
 
-/* "fldigi-fsq-core 0.1.0 contract=fsq-c1 abi=1 tx=1 dsp=0.6.0". Static string. The contract
+/* "fldigi-fsq-core 0.1.0 contract=fsq-c1 abi=1 tx=1 dsp=0.6.1". Static string. The contract
  * tag changes only with an incompatible API change; tx=1 announces the transmitter. */
 const char *ffsq_version(void);
 int ffsq_abi(void);                         /* FFSQ_ABI */

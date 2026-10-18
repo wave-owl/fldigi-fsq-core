@@ -16,7 +16,7 @@ First release, for wave-owl change `add-fldigi-fsq-ifkp-core` (umbrella
   phase-continuous tone generator with FSQ's header, CRC-8, EOT/EOL and flush and IFKP's
   idles. Capability tag `tx=1`. `ffsq_crc8_hex` for hosts.
 - fldigi's behaviours Q1-Q13 kept and tested (README).
-- Built on fldigi-dsp-core 0.6.0 (`dsp/`, pinned by `dsp.lock`; 0.6.0 adds the Blackman
+- Built on fldigi-dsp-core 0.6.1 (`dsp/`, pinned by `dsp.lock`; 0.6.0 adds the Blackman
   window).
 - Goldens from the fldigi 4.2.13 bench: 20 TX overs and 66 RX decodes identical to fldigi on
   the reference platform, also in the sanitizer build; CRC vectors from fldigi's `crc8.h`;
